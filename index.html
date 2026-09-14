@@ -3,99 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LINKVISION — Corteiz</title>
+
+<title>LINKVISION — Discover Your Style</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     background:#050505;
     color:#fff;
+    min-height:100vh;
 }
-a{text-decoration:none;color:inherit}
-button,input{font:inherit}
-button{cursor:pointer}
 
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(5,5,5,.94);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid #222;
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
 }
 
 .navbar{
-    max-width:1200px;
+    position:sticky;
+    top:0;
+    z-index:1000;
     height:72px;
-    margin:auto;
-    padding:0 22px;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    padding:0 6%;
+    background:rgba(5,5,5,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #191919;
 }
 
 .logo{
-    font-size:21px;
+    font-size:23px;
     font-weight:900;
     letter-spacing:4px;
 }
 
+.logo span{
+    color:#777;
+}
+
 .nav-links{
     display:flex;
-    gap:28px;
+    gap:32px;
+    list-style:none;
 }
 
-.nav-links button,
-.footer-links button{
-    background:none;
-    border:0;
+.nav-links a{
     color:#aaa;
+    font-size:14px;
+    transition:.2s;
 }
 
-.nav-links button:hover,
-.footer-links button:hover{
+.nav-links a:hover{
     color:#fff;
 }
 
-.nav-actions{
+.nav-right{
     display:flex;
-    gap:8px;
+    align-items:center;
+    gap:10px;
 }
 
-.icon-btn{
-    width:42px;
-    height:42px;
-    border-radius:50%;
+.lang-btn,
+.menu-btn{
     background:#111;
     border:1px solid #292929;
-    color:#fff;
+    color:white;
+    padding:9px 13px;
+    border-radius:10px;
+    cursor:pointer;
 }
 
-.icon-btn:hover{
-    background:#202020;
-}
-
-.mobile-menu{
+.menu-btn{
     display:none;
 }
 
-/* HERO */
-
 .hero{
-    max-width:1200px;
-    margin:auto;
-    padding:115px 22px 90px;
+    min-height:570px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
+    padding:80px 20px;
+    background:
+        radial-gradient(circle at 50% 30%, #1b1b1b 0%, #090909 38%, #050505 70%);
+}
+
+.hero-content{
+    max-width:850px;
 }
 
 .badge{
     display:inline-block;
-    padding:8px 14px;
-    border:1px solid #333;
+    padding:8px 15px;
+    border:1px solid #303030;
     border-radius:30px;
-    color:#999;
+    color:#aaa;
     font-size:12px;
     letter-spacing:2px;
     margin-bottom:25px;
@@ -103,113 +121,142 @@ header{
 
 .hero h1{
     font-size:clamp(48px,8vw,92px);
-    line-height:.92;
-    letter-spacing:-5px;
+    line-height:.95;
+    letter-spacing:-4px;
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:#777;
 }
 
 .hero p{
     max-width:620px;
-    margin:28px auto 0;
-    color:#888;
+    margin:28px auto;
+    color:#999;
+    font-size:17px;
     line-height:1.7;
 }
 
-.hero-btn{
-    margin-top:35px;
-    padding:14px 26px;
-    border:0;
-    border-radius:30px;
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+    border-radius:12px;
+    padding:14px 22px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.primary-btn{
     background:#fff;
     color:#000;
-    font-weight:800;
+    border:1px solid #fff;
 }
 
-.hero-btn:hover{
+.primary-btn:hover{
     transform:translateY(-2px);
+    background:#ddd;
 }
 
-/* SECTIONS */
+.secondary-btn{
+    background:#111;
+    color:#fff;
+    border:1px solid #292929;
+}
+
+.secondary-btn:hover{
+    background:#191919;
+}
 
 .section{
-    max-width:1200px;
-    margin:auto;
-    padding:55px 22px;
+    padding:80px 6%;
 }
 
 .section-title{
-    margin-bottom:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:30px;
+    gap:20px;
 }
 
 .section-title h2{
-    font-size:31px;
+    font-size:35px;
+    letter-spacing:-1px;
 }
 
 .section-title p{
     color:#777;
-    margin-top:8px;
+    font-size:14px;
 }
-
-/* CATEGORY CARDS */
 
 .categories{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
+    gap:15px;
 }
 
 .category{
-    min-height:150px;
-    padding:25px;
-    text-align:left;
-    background:#0d0d0d;
-    border:1px solid #242424;
+    min-height:180px;
+    background:linear-gradient(145deg,#151515,#0b0b0b);
+    border:1px solid #202020;
     border-radius:18px;
-    color:#fff;
+    padding:25px;
+    cursor:pointer;
     transition:.25s;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
 }
 
 .category:hover{
-    transform:translateY(-4px);
-    border-color:#555;
-    background:#151515;
+    transform:translateY(-5px);
+    border-color:#444;
 }
 
-.category-icon{
-    font-size:38px;
-    margin-bottom:22px;
+.category-number{
+    color:#555;
+    font-size:13px;
+    margin-bottom:auto;
 }
 
 .category h3{
-    font-size:18px;
+    font-size:23px;
+    margin-bottom:8px;
 }
 
 .category p{
     color:#777;
     font-size:13px;
-    margin-top:7px;
 }
 
-/* SEARCH */
-
-.search{
-    margin-bottom:28px;
+.search-box{
+    margin:35px 0;
+    display:flex;
+    gap:10px;
 }
 
-.search input{
+.search-box input{
     width:100%;
-    padding:17px 20px;
-    background:#0d0d0d;
-    border:1px solid #282828;
-    border-radius:14px;
-    color:#fff;
+    padding:16px 18px;
+    border-radius:12px;
+    border:1px solid #252525;
     outline:none;
+    background:#0e0e0e;
+    color:#fff;
+    font-size:15px;
 }
 
-.search input:focus{
-    border-color:#666;
+.search-box input:focus{
+    border-color:#555;
 }
-
-/* PRODUCTS */
 
 .products{
     display:grid;
@@ -217,127 +264,145 @@ header{
     gap:18px;
 }
 
-.product{
-    overflow:hidden;
+.product-card{
     background:#0d0d0d;
     border:1px solid #202020;
-    border-radius:18px;
+    border-radius:17px;
+    overflow:hidden;
     transition:.25s;
 }
 
-.product:hover{
-    transform:translateY(-5px);
-    border-color:#444;
+.product-card:hover{
+    transform:translateY(-4px);
+    border-color:#3b3b3b;
 }
 
 .product-image{
-    height:230px;
-    background:#151515;
+    height:250px;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:75px;
+    justify-content:center;
+    background:
+        radial-gradient(circle,#242424,#111 55%,#090909);
+    color:#555;
+    font-size:13px;
+    letter-spacing:1px;
 }
 
 .product-info{
     padding:18px;
 }
 
-.product-info h3{
+.product-category{
+    font-size:11px;
+    color:#666;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.product-name{
+    font-size:17px;
+    font-weight:700;
     margin-bottom:7px;
 }
 
-.product-info p{
+.product-description{
     color:#777;
-    font-size:14px;
-    margin-bottom:17px;
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:16px;
 }
 
-.view-btn{
+.amazon-btn{
     display:block;
+    width:100%;
     text-align:center;
     padding:12px;
     background:#fff;
     color:#000;
-    border-radius:10px;
-    font-weight:800;
+    border-radius:9px;
+    font-weight:700;
+    font-size:13px;
+    transition:.2s;
 }
 
-.view-btn:hover{
+.amazon-btn:hover{
     background:#ddd;
 }
 
-/* ABOUT */
+.discover{
+    background:#090909;
+}
 
-.about{
-    padding:35px;
-    background:#0b0b0b;
-    border:1px solid #222;
-    border-radius:20px;
-    color:#999;
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.info-card{
+    padding:25px;
+    border:1px solid #202020;
+    border-radius:17px;
+    background:#0d0d0d;
+}
+
+.info-card h3{
+    margin-bottom:12px;
+}
+
+.info-card p{
+    color:#777;
+    font-size:14px;
+    line-height:1.7;
+}
+
+footer{
+    border-top:1px solid #1c1c1c;
+    padding:45px 6%;
+    color:#666;
+    font-size:12px;
     line-height:1.8;
 }
 
-/* FOOTER */
-
-footer{
-    margin-top:60px;
-    padding:40px 22px;
-    text-align:center;
-    border-top:1px solid #222;
-    color:#666;
-}
-
-.footer-links{
-    margin-top:16px;
+.footer-top{
     display:flex;
-    justify-content:center;
-    gap:22px;
+    justify-content:space-between;
+    gap:30px;
+    margin-bottom:30px;
 }
 
-/* TOAST */
+.footer-logo{
+    color:#fff;
+    font-weight:900;
+    letter-spacing:3px;
+}
 
 .toast{
     position:fixed;
-    left:50%;
     bottom:25px;
-    transform:translate(-50%,100px);
+    left:50%;
+    transform:translateX(-50%) translateY(100px);
     background:#fff;
     color:#000;
     padding:13px 20px;
-    border-radius:30px;
+    border-radius:10px;
+    font-size:13px;
     font-weight:700;
     transition:.3s;
     z-index:2000;
 }
 
 .toast.show{
-    transform:translate(-50%,0);
+    transform:translateX(-50%) translateY(0);
 }
 
-/* MOBILE */
+.hidden{
+    display:none;
+}
 
-@media(max-width:800px){
-
-    .nav-links{
-        display:none;
-        position:absolute;
-        left:0;
-        right:0;
-        top:72px;
-        padding:20px;
-        flex-direction:column;
-        background:#080808;
-        border-bottom:1px solid #222;
-    }
-
-    .nav-links.open{
-        display:flex;
-    }
-
-    .mobile-menu{
-        display:block;
-    }
+@media(max-width:900px){
 
     .categories{
         grid-template-columns:repeat(2,1fr);
@@ -346,17 +411,66 @@ footer{
     .products{
         grid-template-columns:repeat(2,1fr);
     }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        padding:20px;
+        background:#080808;
+        border-bottom:1px solid #222;
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
+
+    .navbar{
+        padding:0 5%;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .hero{
+        min-height:520px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .section{
+        padding:60px 5%;
+    }
 
     .categories,
     .products{
         grid-template-columns:1fr;
     }
 
-    .hero h1{
-        letter-spacing:-3px;
+    .product-image{
+        height:220px;
+    }
+
+    .footer-top{
+        flex-direction:column;
     }
 }
 </style>
@@ -364,525 +478,342 @@ footer{
 
 <body>
 
-<header>
+<nav class="navbar">
 
-<div class="navbar">
+    <a href="#" class="logo">
+        LINK<span>VISION</span>
+    </a>
 
-<div class="logo">LINKVISION</div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#products">Discover</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
 
-<nav class="nav-links" id="navLinks">
+    <div class="nav-right">
+        <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">
+            DE
+        </button>
 
-<button onclick="go('categories')">Categories</button>
-<button onclick="go('products')">Discover</button>
-<button onclick="go('about')">About</button>
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+    </div>
 
 </nav>
 
-<div class="nav-actions">
-
-<button class="icon-btn" onclick="toggleLanguage()" id="langBtn">
-DE
-</button>
-
-<button class="icon-btn mobile-menu" onclick="toggleMenu()">
-☰
-</button>
-
-</div>
-
-</div>
-
-</header>
-
-
-<main>
 
 <section class="hero">
 
-<div class="badge">LINKVISION × CORTEIZ</div>
+    <div class="hero-content">
 
-<h1 id="heroTitle">
-DISCOVER<br>CORTEIZ.
-</h1>
+        <div class="badge">
+            LINKVISION / STYLE DISCOVERY
+        </div>
 
-<p id="heroText">
-Explore Corteiz clothing, shoes and accessories
-through LINKVISION.
-</p>
+        <h1>
+            FIND YOUR<br>
+            <span>STYLE.</span>
+        </h1>
 
-<button class="hero-btn"
-onclick="go('categories')"
-id="heroButton">
-Explore categories
-</button>
+        <p id="heroText">
+            Discover selected streetwear, fashion and accessories
+            from trusted marketplaces.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="primary-btn">
+                Explore Products
+            </a>
+
+            <a href="#categories" class="secondary-btn">
+                Browse Categories
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 <section class="section" id="categories">
 
-<div class="section-title">
+    <div class="section-title">
 
-<h2 id="categoryTitle">Corteiz Categories</h2>
+        <div>
+            <h2>Categories</h2>
+            <p>Find what fits your style.</p>
+        </div>
 
-<p id="categoryText">
-Choose a category to visit the corresponding Corteiz section.
-</p>
+    </div>
 
-</div>
+    <div class="categories">
 
+        <div class="category" onclick="filterProducts('clothing')">
+            <div class="category-number">01</div>
+            <h3>Clothing</h3>
+            <p>Tees, hoodies, jackets & more.</p>
+        </div>
 
-<div class="categories">
+        <div class="category" onclick="filterProducts('shoes')">
+            <div class="category-number">02</div>
+            <h3>Shoes</h3>
+            <p>Sneakers and everyday footwear.</p>
+        </div>
 
-<button class="category"
-onclick="openCorteiz('clothing')">
+        <div class="category" onclick="filterProducts('accessories')">
+            <div class="category-number">03</div>
+            <h3>Accessories</h3>
+            <p>Bags, caps and everyday pieces.</p>
+        </div>
 
-<div class="category-icon">👕</div>
+        <div class="category" onclick="filterProducts('all')">
+            <div class="category-number">04</div>
+            <h3>All Products</h3>
+            <p>Explore the complete selection.</p>
+        </div>
 
-<h3>Clothing</h3>
-
-<p>Corteiz clothing</p>
-
-</button>
-
-
-<button class="category"
-onclick="openCorteiz('shoes')">
-
-<div class="category-icon">👟</div>
-
-<h3>Shoes</h3>
-
-<p>Corteiz footwear</p>
-
-</button>
-
-
-<button class="category"
-onclick="openCorteiz('accessories')">
-
-<div class="category-icon">👜</div>
-
-<h3>Accessories</h3>
-
-<p>Corteiz accessories</p>
-
-</button>
-
-
-<button class="category"
-onclick="openCorteiz('all')">
-
-<div class="category-icon">🔥</div>
-
-<h3>All Products</h3>
-
-<p>Explore Corteiz</p>
-
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
-<section class="section" id="products">
+<section class="section discover" id="products">
 
-<div class="section-title">
+    <div class="section-title">
 
-<h2 id="productsTitle">
-Featured Corteiz
-</h2>
+        <div>
+            <h2>Discover</h2>
+            <p id="resultText">Selected products</p>
+        </div>
 
-<p id="productsText">
-Selected categories from the Corteiz collection.
-</p>
+    </div>
 
-</div>
+    <div class="search-box">
 
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+            oninput="searchProducts()"
+        >
 
-<div class="search">
+    </div>
 
-<input
-id="search"
-type="text"
-placeholder="Search categories..."
->
+    <div class="products" id="productGrid">
 
-</div>
 
+        <!-- PRODUCT 1 -->
 
-<div class="products" id="productGrid">
+        <div class="product-card"
+             data-category="clothing"
+             data-name="Oversized Graphic T-Shirt">
 
+            <div class="product-image">
+                PRODUCT IMAGE
+            </div>
 
-<article class="product" data-name="Corteiz Clothing">
+            <div class="product-info">
 
-<div class="product-image">👕</div>
+                <div class="product-category">
+                    Clothing
+                </div>
 
-<div class="product-info">
+                <div class="product-name">
+                    Oversized Graphic T-Shirt
+                </div>
 
-<h3>Corteiz Clothing</h3>
+                <div class="product-description">
+                    Clean oversized streetwear fit.
+                </div>
 
-<p>Tees, hoodies, jackets and more.</p>
+                <!-- BURAYA PARTNERNET LINKINI KOY -->
+                <a
+                    href="YOUR_AMAZON_AFFILIATE_LINK"
+                    target="_blank"
+                    rel="nofollow sponsored"
+                    class="amazon-btn">
+                    View on Amazon
+                </a>
 
-<a
-class="view-btn"
-href="https://www.corteiz.com/collections"
-target="_blank"
-rel="noopener">
-View on Corteiz
-</a>
+            </div>
 
-</div>
+        </div>
 
-</article>
 
+        <!-- PRODUCT 2 -->
 
-<article class="product" data-name="Corteiz Shoes">
+        <div class="product-card"
+             data-category="clothing"
+             data-name="Heavyweight Streetwear Hoodie">
 
-<div class="product-image">👟</div>
+            <div class="product-image">
+                PRODUCT IMAGE
+            </div>
 
-<div class="product-info">
+            <div class="product-info">
 
-<h3>Corteiz Shoes</h3>
+                <div class="product-category">
+                    Clothing
+                </div>
 
-<p>Explore Corteiz footwear releases.</p>
+                <div class="product-name">
+                    Heavyweight Streetwear Hoodie
+                </div>
 
-<a
-class="view-btn"
-href="https://www.corteiz.com/collections"
-target="_blank"
-rel="noopener">
-View on Corteiz
-</a>
+                <div class="product-description">
+                    Premium heavyweight streetwear style.
+                </div>
 
-</div>
+                <a
+                    href="YOUR_AMAZON_AFFILIATE_LINK"
+                    target="_blank"
+                    rel="nofollow sponsored"
+                    class="amazon-btn">
+                    View on Amazon
+                </a>
 
-</article>
+            </div>
 
+        </div>
 
-<article class="product" data-name="Corteiz Accessories">
 
-<div class="product-image">👜</div>
+        <!-- PRODUCT 3 -->
 
-<div class="product-info">
+        <div class="product-card"
+             data-category="shoes"
+             data-name="Classic Street Sneakers">
 
-<h3>Corteiz Accessories</h3>
+            <div class="product-image">
+                PRODUCT IMAGE
+            </div>
 
-<p>Bags, caps and other accessories.</p>
+            <div class="product-info">
 
-<a
-class="view-btn"
-href="https://www.corteiz.com/collections"
-target="_blank"
-rel="noopener">
-View on Corteiz
-</a>
+                <div class="product-category">
+                    Shoes
+                </div>
 
-</div>
+                <div class="product-name">
+                    Classic Street Sneakers
+                </div>
 
-</article>
+                <div class="product-description">
+                    Minimal everyday sneaker design.
+                </div>
 
+                <a
+                    href="YOUR_AMAZON_AFFILIATE_LINK"
+                    target="_blank"
+                    rel="nofollow sponsored"
+                    class="amazon-btn">
+                    View on Amazon
+                </a>
 
-<article class="product" data-name="Corteiz Collection">
+            </div>
 
-<div class="product-image">🔥</div>
+        </div>
 
-<div class="product-info">
 
-<h3>Corteiz Collection</h3>
+        <!-- PRODUCT 4 -->
 
-<p>Browse the latest available products.</p>
+        <div class="product-card"
+             data-category="shoes"
+             data-name="Low Profile Sneakers">
 
-<a
-class="view-btn"
-href="https://www.corteiz.com/collections"
-target="_blank"
-rel="noopener">
-View on Corteiz
-</a>
+            <div class="product-image">
+                PRODUCT IMAGE
+            </div>
 
-</div>
+            <div class="product-info">
 
-</article>
+                <div class="product-category">
+                    Shoes
+                </div>
 
-</div>
+                <div class="product-name">
+                    Low Profile Sneakers
+                </div>
 
-</section>
+                <div class="product-description">
+                    Low-profile silhouette for everyday outfits.
+                </div>
 
+                <a
+                    href="YOUR_AMAZON_AFFILIATE_LINK"
+                    target="_blank"
+                    rel="nofollow sponsored"
+                    class="amazon-btn">
+                    View on Amazon
+                </a>
 
-<section class="section" id="about">
+            </div>
 
-<div class="about">
+        </div>
 
-<h2 id="aboutTitle">
-About LINKVISION
-</h2>
 
-<br>
+        <!-- PRODUCT 5 -->
 
-<p id="aboutText">
-LINKVISION is a product discovery website focused on
-Corteiz products. We help visitors discover categories
-and direct them to the official Corteiz website.
-LINKVISION does not operate as the Corteiz store.
-</p>
+        <div class="product-card"
+             data-category="accessories"
+             data-name="Everyday Crossbody Bag">
 
-</div>
+            <div class="product-image">
+                PRODUCT IMAGE
+            </div>
 
-</section>
+            <div class="product-info">
 
-</main>
+                <div class="product-category">
+                    Accessories
+                </div>
 
+                <div class="product-name">
+                    Everyday Crossbody Bag
+                </div>
 
-<footer>
+                <div class="product-description">
+                    Compact streetwear-inspired bag.
+                </div>
 
-<p>
-© 2026 LINKVISION
-</p>
+                <a
+                    href="YOUR_AMAZON_AFFILIATE_LINK"
+                    target="_blank"
+                    rel="nofollow sponsored"
+                    class="amazon-btn">
+                    View on Amazon
+                </a>
 
-<p style="margin-top:10px">
-LINKVISION is an independent website and is not affiliated
-with or operated by Corteiz.
-</p>
+            </div>
 
-<div class="footer-links">
+        </div>
 
-<button onclick="showToast('More information coming soon')">
-Impressum
-</button>
 
-<button onclick="showToast('Privacy information coming soon')">
-Privacy
-</button>
+        <!-- PRODUCT 6 -->
 
-</div>
+        <div class="product-card"
+             data-category="accessories"
+             data-name="Classic Street Cap">
 
-</footer>
+            <div class="product-image">
+                PRODUCT IMAGE
+            </div>
 
+            <div class="product-info">
 
-<div class="toast" id="toast"></div>
+                <div class="product-category">
+                    Accessories
+                </div>
 
+                <div class="product-name">
+                    Classic Street Cap
+                </div>
 
-<script>
+                <div class="product-description">
+                    Simple everyday cap with a clean look.
+                </div>
 
-/* NAVIGATION */
-
-function go(id){
-
-    const element =
-    document.getElementById(id);
-
-    if(element){
-
-        element.scrollIntoView({
-            behavior:"smooth"
-        });
-
-    }
-
-    document
-    .getElementById("navLinks")
-    .classList.remove("open");
-}
-
-
-/* MOBILE MENU */
-
-function toggleMenu(){
-
-    document
-    .getElementById("navLinks")
-    .classList.toggle("open");
-
-}
-
-
-/* TOAST */
-
-function showToast(message){
-
-    const toast =
-    document.getElementById("toast");
-
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    },2200);
-
-}
-
-
-/* CORTEIZ LINKS */
-
-function openCorteiz(category){
-
-    /*
-      These currently point to Corteiz's
-      official collection area.
-
-      When Corteiz publishes stable category URLs,
-      replace the URLs below with the exact category URLs.
-    */
-
-    const links = {
-
-        clothing:
-        "https://www.corteiz.com/collections",
-
-        shoes:
-        "https://www.corteiz.com/collections",
-
-        accessories:
-        "https://www.corteiz.com/collections",
-
-        all:
-        "https://www.corteiz.com/collections"
-
-    };
-
-    window.open(
-        links[category],
-        "_blank"
-    );
-
-}
-
-
-/* SEARCH */
-
-document
-.getElementById("search")
-.addEventListener("input",function(){
-
-    const query =
-    this.value.toLowerCase();
-
-    document
-    .querySelectorAll(".product")
-    .forEach(product => {
-
-        const name =
-        product.dataset.name.toLowerCase();
-
-        product.style.display =
-        name.includes(query)
-        ? ""
-        : "none";
-
-    });
-
-});
-
-
-/* LANGUAGE */
-
-let language = "en";
-
-
-function toggleLanguage(){
-
-    language =
-    language === "en"
-    ? "de"
-    : "en";
-
-    const german =
-    language === "de";
-
-
-    document
-    .getElementById("langBtn")
-    .textContent =
-    german ? "EN" : "DE";
-
-
-    document
-    .getElementById("heroTitle")
-    .innerHTML =
-    german
-    ? "ENTDECKE<br>CORTEIZ."
-    : "DISCOVER<br>CORTEIZ.";
-
-
-    document
-    .getElementById("heroText")
-    .textContent =
-    german
-    ? "Entdecke Corteiz Kleidung, Schuhe und Accessoires über LINKVISION."
-    : "Explore Corteiz clothing, shoes and accessories through LINKVISION.";
-
-
-    document
-    .getElementById("heroButton")
-    .textContent =
-    german
-    ? "Kategorien entdecken"
-    : "Explore categories";
-
-
-    document
-    .getElementById("categoryTitle")
-    .textContent =
-    german
-    ? "Corteiz Kategorien"
-    : "Corteiz Categories";
-
-
-    document
-    .getElementById("categoryText")
-    .textContent =
-    german
-    ? "Wähle eine Kategorie, um den entsprechenden Corteiz-Bereich zu öffnen."
-    : "Choose a category to visit the corresponding Corteiz section.";
-
-
-    document
-    .getElementById("productsTitle")
-    .textContent =
-    german
-    ? "Ausgewählte Corteiz Bereiche"
-    : "Featured Corteiz";
-
-
-    document
-    .getElementById("productsText")
-    .textContent =
-    german
-    ? "Ausgewählte Kategorien aus der Corteiz-Kollektion."
-    : "Selected categories from the Corteiz collection.";
-
-
-    document
-    .getElementById("search")
-    .placeholder =
-    german
-    ? "Kategorien suchen..."
-    : "Search categories...";
-
-
-    document
-    .getElementById("aboutTitle")
-    .textContent =
-    german
-    ? "Über LINKVISION"
-    : "About LINKVISION";
-
-
-    showToast(
-        german
-        ? "Deutsch aktiviert"
-        : "English activated"
-    );
-
-}
-
-</script>
-
-</body>
-</html>
+                <a
+                    href="YOUR_AMAZON_AFFILIATE_LINK"
