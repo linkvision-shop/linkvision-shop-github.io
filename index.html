@@ -1,13 +1,270 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>LinkVision Test</title>
-</head>
-<body style="background:white;color:black;font-family:Arial;padding:50px">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1>LINKVISION ÇALIŞIYOR ✅</h1>
-<p>GitHub Pages dosyayı doğru şekilde yayınlıyor.</p>
+<title>LINKVISION — Discover Your Style</title>
 
-</body>
-</html>
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    width: 100%;
+    height: 74px;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(5,5,5,0.96);
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #888;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.mobile-menu {
+    display: none;
+    background: none;
+    border: 0;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 580px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 90px 6%;
+
+    border-bottom: 1px solid #141414;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -220px;
+    top: -150px;
+
+    background: #181818;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.6;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+}
+
+.small-title {
+    color: #666;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 9vw, 115px);
+    line-height: 0.9;
+
+    letter-spacing: -6px;
+
+    font-weight: 900;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: #666;
+}
+
+.hero-text {
+    max-width: 570px;
+
+    color: #888;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.button-white {
+    display: inline-block;
+
+    padding: 14px 22px;
+
+    background: white;
+    color: black;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    transition: 0.2s;
+}
+
+.button-white:hover {
+    background: #ccc;
+}
+
+.button-dark {
+    display: inline-block;
+
+    padding: 14px 22px;
+
+    background: #111;
+    color: white;
+
+    border: 1px solid #303030;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    transition: 0.2s;
+}
+
+.button-dark:hover {
+    border-color: #666;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 80px 6%;
+}
+
+.section-title {
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.section-description {
+    margin-top: 7px;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+/* CATEGORIES */
+
+.categories {
+    margin-top: 35px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+}
+
+.category {
+    min-height: 150px;
+
+    padding: 22px;
+
+    background: #0b0b0b;
+
+    border: 1px solid #1c1c1c;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: 0.25s;
+}
+
+.category:hover {
+    transform: translateY(-4px);
+
+    background: #101010;
+
+    border-color: #444;
+}
+
+.category-number {
+    color: #
