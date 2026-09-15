@@ -1,474 +1,715 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LINKVISION</title>
+<title>LinkVision — Fashion & Lifestyle</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #080808;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,8,8,0.96);
+    border-bottom: 1px solid #222;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav a {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.nav a:hover {
+    color: white;
+}
+
+.lang {
+    display: flex;
+    gap: 6px;
+}
+
+.lang button {
+    border: 1px solid #333;
+    background: #111;
+    color: #aaa;
+    padding: 7px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.lang button.active {
+    background: white;
+    color: black;
+}
+
+.hero {
+    min-height: 500px;
+    padding: 120px 6%;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 70% 40%, #252525 0%, #080808 48%);
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: .9;
+    margin: 0 0 25px;
+    letter-spacing: -5px;
+}
+
+.hero p {
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 20px;
+    background: white;
+    color: black;
+    padding: 15px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.section {
+    padding: 70px 6%;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #111;
+    border: 1px solid #242424;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform .2s, border-color .2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #555;
+}
+
+.product-image {
+    width: 100%;
+    height: 310px;
+    object-fit: contain;
+    display: block;
+    background: #eeeeee;
+    padding: 12px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.category {
+    color: #777;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin: 0 0 15px;
+    line-height: 1.35;
+}
+
+.price {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 17px;
+}
+
+.old-price {
+    color: #777;
+    text-decoration: line-through;
+    font-size: 15px;
+    margin-left: 8px;
+}
+
+.view-button {
+    display: inline-block;
+    background: white;
+    color: black;
+    padding: 11px 18px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+footer {
+    border-top: 1px solid #222;
+    padding: 40px 6%;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+@media(max-width: 850px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 16px 5%;
+    }
+
+    .nav a {
+        display: none;
+    }
+
+    .hero {
+        padding: 90px 5%;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .section {
+        padding: 50px 5%;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 350px;
+    }
+}
+</style>
 </head>
 
-<body style="margin:0;background:#050505;color:white;font-family:Arial,Helvetica,sans-serif;">
+<body>
 
-<div style="padding:25px 7%;border-bottom:1px solid #222;">
-    <div style="font-size:24px;font-weight:bold;letter-spacing:3px;">
-        LINKVISION
+<header>
+    <div class="logo">LINKVISION</div>
+
+    <div class="nav">
+        <a href="#products" id="navProducts">Products</a>
+
+        <div class="lang">
+            <button id="enBtn" class="active" onclick="setLanguage('en')">EN</button>
+            <button id="deBtn" onclick="setLanguage('de')">DE</button>
+        </div>
     </div>
-    <div style="color:#888;margin-top:8px;">
-        Fashion • Lifestyle • Streetwear
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1 id="heroTitle">FIND YOUR STYLE.</h1>
+
+        <p id="heroText">
+            Discover fashion, streetwear and lifestyle products
+            selected for everyday style.
+        </p>
+
+        <a href="#products" class="hero-button" id="heroButton">
+            Explore Products
+        </a>
+
     </div>
-</div>
+
+</section>
 
 
-<div style="text-align:center;padding:90px 20px;background:#0b0b0b;">
+<section class="section" id="products">
 
-    <h1 style="font-size:60px;margin:0;font-weight:900;">
-        FIND YOUR STYLE.
-    </h1>
-
-    <p style="color:#999;font-size:17px;margin-top:20px;">
-        Entdecke ausgewählte Fashion- und Lifestyle-Produkte.
-    </p>
-
-    <a href="#products"
-       style="display:inline-block;margin-top:25px;padding:15px 28px;background:white;color:black;text-decoration:none;border-radius:10px;font-weight:bold;">
-        Produkte entdecken
-    </a>
-
-</div>
-
-
-<div id="products" style="padding:60px 7%;">
-
-    <h2 style="font-size:32px;margin-bottom:35px;">
-        Ausgewählte Produkte
+    <h2 class="section-title" id="sectionTitle">
+        Featured Products
     </h2>
 
 
-    <!-- PRODUKT 1 -->
-
-    <div style="display:inline-block;vertical-align:top;width:29%;margin:1%;background:#111;border:1px solid #292929;border-radius:15px;overflow:hidden;">
-
-        <div style="height:260px;background:#191919;text-align:center;">
-
-            <img
-            src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
-            alt="Jogginganzug"
-            style="width:100%;height:100%;object-fit:contain;">
-
-        </div>
-
-        <div style="padding:20px;">
-
-            <div style="color:#777;font-size:11px;">
-                FASHION
-            </div>
-
-            <h3 style="font-size:19px;">
-                Baumwoll Jogginganzug
-            </h3>
-
-            <div style="font-size:20px;font-weight:bold;">
-                Preis auf Amazon
-            </div>
-
-            <div style="color:#666;font-size:11px;margin-top:5px;">
-                Aktueller Preis kann sich ändern.
-            </div>
-
-            <a
-            href="https://www.amazon.de/dp/B0FQ5F1PVT?tag=linkvision-21"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            style="display:block;margin-top:18px;padding:13px;background:white;color:black;text-align:center;text-decoration:none;border-radius:8px;font-weight:bold;">
-                Auf Amazon ansehen →
-            </a>
-
-        </div>
-
-    </div>
+    <div class="products">
 
 
-
-    <!-- PRODUKT 2 -->
-
-    <div style="display:inline-block;vertical-align:top;width:29%;margin:1%;background:#111;border:1px solid #292929;border-radius:15px;overflow:hidden;">
-
-        <div style="height:260px;background:#191919;text-align:center;">
+        <!-- PRODUCT 1 -->
+        <div class="card">
 
             <img
-            src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
-            alt="Trainingsanzug"
-            style="width:100%;height:100%;object-fit:contain;">
+                class="product-image"
+                src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
+                alt="Cotton Tracksuit"
+            >
 
+            <div class="card-content">
+
+                <div class="category" data-en="Streetwear" data-de="Streetwear">
+                    Streetwear
+                </div>
+
+                <h3
+                    data-en="Cotton Jogging Tracksuit"
+                    data-de="Baumwoll Jogginganzug"
+                >
+                    Cotton Jogging Tracksuit
+                </h3>
+
+                <div class="price">
+                    €16.00
+                </div>
+
+                <a
+                    class="view-button"
+                    href="https://www.amazon.de/dp/B0FQ5F1PVT?tag=linkvision-21"
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-en="View →"
+                    data-de="Ansehen →"
+                >
+                    View →
+                </a>
+
+            </div>
         </div>
 
-        <div style="padding:20px;">
 
-            <div style="color:#777;font-size:11px;">
-                STREETWEAR
-            </div>
-
-            <h3 style="font-size:19px;">
-                Trainingsanzug & Zweiteiler
-            </h3>
-
-            <div style="font-size:20px;font-weight:bold;">
-                Preis auf Amazon
-            </div>
-
-            <div style="color:#666;font-size:11px;margin-top:5px;">
-                Aktueller Preis kann sich ändern.
-            </div>
-
-            <a
-            href="https://www.amazon.de/dp/B0FJ53WBHJ?tag=linkvision-21"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            style="display:block;margin-top:18px;padding:13px;background:white;color:black;text-align:center;text-decoration:none;border-radius:8px;font-weight:bold;">
-                Auf Amazon ansehen →
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PRODUKT 3 -->
-
-    <div style="display:inline-block;vertical-align:top;width:29%;margin:1%;background:#111;border:1px solid #292929;border-radius:15px;overflow:hidden;">
-
-        <div style="height:260px;background:#191919;text-align:center;">
+        <!-- PRODUCT 2 -->
+        <div class="card">
 
             <img
-            src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
-            alt="Laufmütze"
-            style="width:100%;height:100%;object-fit:contain;">
+                class="product-image"
+                src="https://images-na.ssl-images-amazon.com/images/P/B0FJ53WBHJ.01.LZZZZZZZ.jpg"
+                alt="Training Tracksuit"
+            >
 
+            <div class="card-content">
+
+                <div class="category">Streetwear</div>
+
+                <h3
+                    data-en="Training Tracksuit"
+                    data-de="Trainingsanzug"
+                >
+                    Training Tracksuit
+                </h3>
+
+                <div class="price">
+                    €19.00
+                </div>
+
+                <a
+                    class="view-button"
+                    href="https://www.amazon.de/dp/B0FJ53WBHJ?tag=linkvision-21"
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-en="View →"
+                    data-de="Ansehen →"
+                >
+                    View →
+                </a>
+
+            </div>
         </div>
 
-        <div style="padding:20px;">
 
-            <div style="color:#777;font-size:11px;">
-                ACCESSORIES
-            </div>
-
-            <h3 style="font-size:19px;">
-                Atmungsaktive Laufmütze
-            </h3>
-
-            <div style="font-size:20px;font-weight:bold;">
-                Preis auf Amazon
-            </div>
-
-            <div style="color:#666;font-size:11px;margin-top:5px;">
-                Aktueller Preis kann sich ändern.
-            </div>
-
-            <a
-            href="https://www.amazon.de/dp/B0F4Q2HTFY?tag=linkvision-21"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            style="display:block;margin-top:18px;padding:13px;background:white;color:black;text-align:center;text-decoration:none;border-radius:8px;font-weight:bold;">
-                Auf Amazon ansehen →
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PRODUKT 4 -->
-
-    <div style="display:inline-block;vertical-align:top;width:29%;margin:1%;background:#111;border:1px solid #292929;border-radius:15px;overflow:hidden;">
-
-        <div style="height:260px;background:#191919;text-align:center;">
+        <!-- PRODUCT 3 -->
+        <div class="card">
 
             <img
-            src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
-            alt="Jogginghose"
-            style="width:100%;height:100%;object-fit:contain;">
+                class="product-image"
+                src="https://images-na.ssl-images-amazon.com/images/P/B0F4Q2HTFY.01.LZZZZZZZ.jpg"
+                alt="Running Beanie"
+            >
 
+            <div class="card-content">
+
+                <div class="category">Accessories</div>
+
+                <h3
+                    data-en="Breathable Running Beanie"
+                    data-de="Atmungsaktive Laufmütze"
+                >
+                    Breathable Running Beanie
+                </h3>
+
+                <div class="price">
+                    €18.00
+                    <span class="old-price">€21.00</span>
+                </div>
+
+                <a
+                    class="view-button"
+                    href="https://www.amazon.de/dp/B0F4Q2HTFY?tag=linkvision-21"
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-en="View →"
+                    data-de="Ansehen →"
+                >
+                    View →
+                </a>
+
+            </div>
         </div>
 
-        <div style="padding:20px;">
 
-            <div style="color:#777;font-size:11px;">
-                STREETWEAR
-            </div>
-
-            <h3 style="font-size:19px;">
-                Comfort Sweatpants
-            </h3>
-
-            <div style="font-size:20px;font-weight:bold;">
-                Preis auf Amazon
-            </div>
-
-            <div style="color:#666;font-size:11px;margin-top:5px;">
-                Aktueller Preis kann sich ändern.
-            </div>
-
-            <a
-            href="https://www.amazon.de/dp/B0FV8M79TX?tag=linkvision-21"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            style="display:block;margin-top:18px;padding:13px;background:white;color:black;text-align:center;text-decoration:none;border-radius:8px;font-weight:bold;">
-                Auf Amazon ansehen →
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PRODUKT 5 -->
-
-    <div style="display:inline-block;vertical-align:top;width:29%;margin:1%;background:#111;border:1px solid #292929;border-radius:15px;overflow:hidden;">
-
-        <div style="height:260px;background:#191919;text-align:center;">
+        <!-- PRODUCT 4 -->
+        <div class="card">
 
             <img
-            src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
-            alt="Trainingsanzug"
-            style="width:100%;height:100%;object-fit:contain;">
+                class="product-image"
+                src="https://images-na.ssl-images-amazon.com/images/P/B0FV8M79TX.01.LZZZZZZZ.jpg"
+                alt="Sweatpants"
+            >
 
+            <div class="card-content">
+
+                <div class="category">Pants</div>
+
+                <h3
+                    data-en="Comfort Sweatpants"
+                    data-de="Bequeme Jogginghose"
+                >
+                    Comfort Sweatpants
+                </h3>
+
+                <div class="price">
+                    €18.00
+                </div>
+
+                <a
+                    class="view-button"
+                    href="https://www.amazon.de/dp/B0FV8M79TX?tag=linkvision-21"
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-en="View →"
+                    data-de="Ansehen →"
+                >
+                    View →
+                </a>
+
+            </div>
         </div>
 
-        <div style="padding:20px;">
 
-            <div style="color:#777;font-size:11px;">
-                SPORT
-            </div>
-
-            <h3 style="font-size:19px;">
-                Trainingsanzug mit Kapuzenjacke
-            </h3>
-
-            <div style="font-size:20px;font-weight:bold;">
-                Preis auf Amazon
-            </div>
-
-            <div style="color:#666;font-size:11px;margin-top:5px;">
-                Aktueller Preis kann sich ändern.
-            </div>
-
-            <a
-            href="https://www.amazon.de/dp/B0CKN15V9V?tag=linkvision-21"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            style="display:block;margin-top:18px;padding:13px;background:white;color:black;text-align:center;text-decoration:none;border-radius:8px;font-weight:bold;">
-                Auf Amazon ansehen →
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PRODUKT 6 -->
-
-    <div style="display:inline-block;vertical-align:top;width:29%;margin:1%;background:#111;border:1px solid #292929;border-radius:15px;overflow:hidden;">
-
-        <div style="height:260px;background:#191919;text-align:center;">
+        <!-- PRODUCT 5 -->
+        <div class="card">
 
             <img
-            src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
-            alt="Schuhe"
-            style="width:100%;height:100%;object-fit:contain;">
+                class="product-image"
+                src="https://images-na.ssl-images-amazon.com/images/P/B0CKN15V9V.01.LZZZZZZZ.jpg"
+                alt="Sports Tracksuit"
+            >
 
+            <div class="card-content">
+
+                <div class="category">Sportswear</div>
+
+                <h3
+                    data-en="Hooded Sports Tracksuit"
+                    data-de="Sportanzug mit Kapuze"
+                >
+                    Hooded Sports Tracksuit
+                </h3>
+
+                <div class="price">
+                    €29.00
+                </div>
+
+                <a
+                    class="view-button"
+                    href="https://www.amazon.de/dp/B0CKN15V9V?tag=linkvision-21"
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-en="View →"
+                    data-de="Ansehen →"
+                >
+                    View →
+                </a>
+
+            </div>
         </div>
 
-        <div style="padding:20px;">
 
-            <div style="color:#777;font-size:11px;">
-                FOOTWEAR
-            </div>
-
-            <h3 style="font-size:19px;">
-                Pillow Cushioned Footwear
-            </h3>
-
-            <div style="font-size:20px;font-weight:bold;">
-                Preis auf Amazon
-            </div>
-
-            <div style="color:#666;font-size:11px;margin-top:5px;">
-                Aktueller Preis kann sich ändern.
-            </div>
-
-            <a
-            href="https://www.amazon.de/dp/B0H9QJTKMQ?tag=linkvision-21"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            style="display:block;margin-top:18px;padding:13px;background:white;color:black;text-align:center;text-decoration:none;border-radius:8px;font-weight:bold;">
-                Auf Amazon ansehen →
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PRODUKT 7 -->
-
-    <div style="display:inline-block;vertical-align:top;width:29%;margin:1%;background:#111;border:1px solid #292929;border-radius:15px;overflow:hidden;">
-
-        <div style="height:260px;background:#191919;text-align:center;">
+        <!-- PRODUCT 6 -->
+        <div class="card">
 
             <img
-            src="https://m.media-amazon.com/images/I/712fCASztyL._AC_SL1500_.jpg"
-            alt="Alpinestars Beanie"
-            style="width:100%;height:100%;object-fit:contain;">
+                class="product-image"
+                src="https://images-na.ssl-images-amazon.com/images/P/B0H9QJTKMQ.01.LZZZZZZZ.jpg"
+                alt="Black Platform Footwear"
+            >
 
+            <div class="card-content">
+
+                <div class="category">Footwear</div>
+
+                <h3
+                    data-en="Cushioned Platform Footwear"
+                    data-de="Gepolsterte Plateauschuhe"
+                >
+                    Cushioned Platform Footwear
+                </h3>
+
+                <div class="price">
+                    €36.00
+                </div>
+
+                <a
+                    class="view-button"
+                    href="https://www.amazon.de/dp/B0H9QJTKMQ?tag=linkvision-21"
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-en="View →"
+                    data-de="Ansehen →"
+                >
+                    View →
+                </a>
+
+            </div>
         </div>
 
-        <div style="padding:20px;">
 
-            <div style="color:#777;font-size:11px;">
-                ACCESSORIES
-            </div>
-
-            <h3 style="font-size:19px;">
-                Alpinestars Beanie Shift Black
-            </h3>
-
-            <div style="font-size:20px;font-weight:bold;">
-                Preis auf Amazon
-            </div>
-
-            <div style="color:#666;font-size:11px;margin-top:5px;">
-                Aktueller Preis kann sich ändern.
-            </div>
-
-            <a
-            href="https://www.amazon.de/dp/B01FJFR0O4?tag=linkvision-21"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            style="display:block;margin-top:18px;padding:13px;background:white;color:black;text-align:center;text-decoration:none;border-radius:8px;font-weight:bold;">
-                Auf Amazon ansehen →
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PRODUKT 8 -->
-
-    <div style="display:inline-block;vertical-align:top;width:29%;margin:1%;background:#111;border:1px solid #292929;border-radius:15px;overflow:hidden;">
-
-        <div style="height:260px;background:#191919;text-align:center;">
+        <!-- PRODUCT 7 -->
+        <div class="card">
 
             <img
-            src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
-            alt="Laptop Rucksack"
-            style="width:100%;height:100%;object-fit:contain;">
+                class="product-image"
+                src="https://m.media-amazon.com/images/I/712fCASztyL._AC_SL1500_.jpg"
+                alt="Black Beanie"
+            >
 
+            <div class="card-content">
+
+                <div class="category">Accessories</div>
+
+                <h3
+                    data-en="Shift Black Beanie"
+                    data-de="Shift Schwarze Beanie"
+                >
+                    Shift Black Beanie
+                </h3>
+
+                <div class="price">
+                    €20.00
+                </div>
+
+                <a
+                    class="view-button"
+                    href="https://www.amazon.de/dp/B01FJFR0O4?tag=linkvision-21"
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-en="View →"
+                    data-de="Ansehen →"
+                >
+                    View →
+                </a>
+
+            </div>
         </div>
 
-        <div style="padding:20px;">
 
-            <div style="color:#777;font-size:11px;">
-                BAGS
-            </div>
-
-            <h3 style="font-size:19px;">
-                Rot-Schwarzer Laptop-Rucksack
-            </h3>
-
-            <div style="font-size:20px;font-weight:bold;">
-                Preis auf Amazon
-            </div>
-
-            <div style="color:#666;font-size:11px;margin-top:5px;">
-                Aktueller Preis kann sich ändern.
-            </div>
-
-            <a
-            href="https://www.amazon.de/dp/B0BQFWZZQ9?tag=linkvision-21"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            style="display:block;margin-top:18px;padding:13px;background:white;color:black;text-align:center;text-decoration:none;border-radius:8px;font-weight:bold;">
-                Auf Amazon ansehen →
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PRODUKT 9 -->
-
-    <div style="display:inline-block;vertical-align:top;width:29%;margin:1%;background:#111;border:1px solid #292929;border-radius:15px;overflow:hidden;">
-
-        <div style="height:260px;background:#191919;text-align:center;">
+        <!-- PRODUCT 8 -->
+        <div class="card">
 
             <img
-            src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
-            alt="Herren Schuhe"
-            style="width:100%;height:100%;object-fit:contain;">
+                class="product-image"
+                src="https://images-na.ssl-images-amazon.com/images/P/B0BQFWZZQ9.01.LZZZZZZZ.jpg"
+                alt="Black Red Laptop Backpack"
+            >
 
+            <div class="card-content">
+
+                <div class="category">Bags</div>
+
+                <h3
+                    data-en="Black & Red Laptop Backpack"
+                    data-de="Schwarz-Roter Laptop-Rucksack"
+                >
+                    Black & Red Laptop Backpack
+                </h3>
+
+                <div class="price">
+                    €38.00
+                </div>
+
+                <a
+                    class="view-button"
+                    href="https://www.amazon.de/dp/B0BQFWZZQ9?tag=linkvision-21"
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-en="View →"
+                    data-de="Ansehen →"
+                >
+                    View →
+                </a>
+
+            </div>
         </div>
 
-        <div style="padding:20px;">
 
-            <div style="color:#777;font-size:11px;">
-                FOOTWEAR
+        <!-- PRODUCT 9 -->
+        <div class="card">
+
+            <img
+                class="product-image"
+                src="https://images-na.ssl-images-amazon.com/images/P/B0F18ZGLZ6.01.LZZZZZZZ.jpg"
+                alt="Men's Shoes"
+            >
+
+            <div class="card-content">
+
+                <div class="category">Footwear</div>
+
+                <h3
+                    data-en="Men's Casual Shoes"
+                    data-de="Herren Freizeitschuhe"
+                >
+                    Men's Casual Shoes
+                </h3>
+
+                <div class="price">
+                    €33.00
+                </div>
+
+                <a
+                    class="view-button"
+                    href="https://www.amazon.de/dp/B0F18ZGLZ6?tag=linkvision-21"
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-en="View →"
+                    data-de="Ansehen →"
+                >
+                    View →
+                </a>
+
             </div>
-
-            <h3 style="font-size:19px;">
-                Modernes Herren-Schuhdesign
-            </h3>
-
-            <div style="font-size:20px;font-weight:bold;">
-                Preis auf Amazon
-            </div>
-
-            <div style="color:#666;font-size:11px;margin-top:5px;">
-                Aktueller Preis kann sich ändern.
-            </div>
-
-            <a
-            href="https://www.amazon.de/dp/B0F18ZGLZ6?tag=linkvision-21"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            style="display:block;margin-top:18px;padding:13px;background:white;color:black;text-align:center;text-decoration:none;border-radius:8px;font-weight:bold;">
-                Auf Amazon ansehen →
-            </a>
-
         </div>
+
 
     </div>
+</section>
 
 
-</div>
+<footer>
 
+    <strong>LINKVISION</strong>
 
-
-<!-- FOOTER -->
-
-<div style="padding:40px 7%;border-top:1px solid #222;text-align:center;color:#666;font-size:12px;">
-
-    <p>
-        Als Amazon-Partner verdient LinkVision an qualifizierten Verkäufen.
+    <p id="footerText">
+        As an Amazon Associate, LinkVision earns from qualifying purchases.
+        Prices and availability may change. Please check Amazon for the current price.
     </p>
 
-    <p>
-        Preise und Verfügbarkeit können sich jederzeit ändern.
-    </p>
+</footer>
 
-    <p>
-        © 2026 LINKVISION
-    </p>
 
-</div>
+<script>
 
+function setLanguage(language) {
+
+    const elements = document.querySelectorAll("[data-" + language + "]");
+
+    elements.forEach(function(element) {
+        element.textContent = element.getAttribute("data-" + language);
+    });
+
+
+    if (language === "de") {
+
+        document.documentElement.lang = "de";
+
+        document.getElementById("heroTitle").textContent =
+            "FINDE DEINEN STYLE.";
+
+        document.getElementById("heroText").textContent =
+            "Entdecke Fashion, Streetwear und Lifestyle-Produkte für deinen Alltag.";
+
+        document.getElementById("heroButton").textContent =
+            "Produkte entdecken";
+
+        document.getElementById("sectionTitle").textContent =
+            "Ausgewählte Produkte";
+
+        document.getElementById("footerText").textContent =
+            "Als Amazon-Partner verdient LinkVision an qualifizierten Verkäufen. Preise und Verfügbarkeit können sich ändern. Bitte prüfe den aktuellen Preis auf Amazon.";
+
+        document.getElementById("deBtn").classList.add("active");
+        document.getElementById("enBtn").classList.remove("active");
+
+    } else {
+
+        document.documentElement.lang = "en";
+
+        document.getElementById("heroTitle").textContent =
+            "FIND YOUR STYLE.";
+
+        document.getElementById("heroText").textContent =
+            "Discover fashion, streetwear and lifestyle products selected for everyday style.";
+
+        document.getElementById("heroButton").textContent =
+            "Explore Products";
+
+        document.getElementById("sectionTitle").textContent =
+            "Featured Products";
+
+        document.getElementById("footerText").textContent =
+            "As an Amazon Associate, LinkVision earns from qualifying purchases. Prices and availability may change. Please check Amazon for the current price.";
+
+        document.getElementById("enBtn").classList.add("active");
+        document.getElementById("deBtn").classList.remove("active");
+    }
+
+}
+
+</script>
 
 </body>
 </html>
