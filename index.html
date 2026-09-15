@@ -3,17 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LinkVision — Fashion & Lifestyle</title>
 
 <style>
+
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     background: #080808;
-    color: #ffffff;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -22,16 +28,18 @@ a {
     color: inherit;
 }
 
+/* HEADER */
+
 header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(8,8,8,0.96);
+    background: rgba(8,8,8,.97);
     border-bottom: 1px solid #222;
     padding: 20px 6%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
@@ -46,78 +54,89 @@ header {
     gap: 25px;
 }
 
-.nav a {
+.nav-link {
     color: #aaa;
     font-size: 14px;
 }
 
-.nav a:hover {
+.nav-link:hover {
     color: white;
 }
 
-.lang {
+.languages {
     display: flex;
-    gap: 6px;
+    gap: 5px;
 }
 
-.lang button {
+.languages button {
     border: 1px solid #333;
     background: #111;
-    color: #aaa;
+    color: #888;
     padding: 7px 10px;
     border-radius: 7px;
     cursor: pointer;
+    font-weight: bold;
 }
 
-.lang button.active {
+.languages button.active {
     background: white;
     color: black;
 }
 
+/* HERO */
+
 .hero {
     min-height: 500px;
-    padding: 120px 6%;
+    padding: 110px 6%;
     display: flex;
     align-items: center;
+
     background:
-        radial-gradient(circle at 70% 40%, #252525 0%, #080808 48%);
+        radial-gradient(
+            circle at 75% 40%,
+            #292929 0%,
+            #101010 30%,
+            #080808 65%
+        );
 }
 
 .hero-content {
-    max-width: 700px;
+    max-width: 720px;
 }
 
 .hero h1 {
-    font-size: clamp(48px, 8vw, 100px);
-    line-height: .9;
     margin: 0 0 25px;
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: .88;
     letter-spacing: -5px;
 }
 
 .hero p {
+    max-width: 600px;
     color: #aaa;
     font-size: 18px;
     line-height: 1.6;
-    max-width: 600px;
 }
 
 .hero-button {
     display: inline-block;
     margin-top: 20px;
+    padding: 15px 23px;
     background: white;
     color: black;
-    padding: 15px 22px;
     border-radius: 8px;
     font-weight: bold;
 }
 
+/* PRODUCTS */
+
 .section {
-    padding: 70px 6%;
+    padding: 75px 6%;
 }
 
 .section-title {
-    font-size: 32px;
-    margin-bottom: 35px;
+    font-size: 34px;
+    margin: 0 0 35px;
 }
 
 .products {
@@ -126,12 +145,14 @@ header {
     gap: 25px;
 }
 
+/* CARD */
+
 .card {
     background: #111;
-    border: 1px solid #242424;
-    border-radius: 14px;
+    border: 1px solid #252525;
+    border-radius: 15px;
     overflow: hidden;
-    transition: transform .2s, border-color .2s;
+    transition: .2s ease;
 }
 
 .card:hover {
@@ -139,13 +160,34 @@ header {
     border-color: #555;
 }
 
+/* IMAGE */
+
+.image-box {
+    width: 100%;
+    height: 320px;
+    background: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
 .product-image {
     width: 100%;
-    height: 310px;
+    height: 100%;
     object-fit: contain;
-    display: block;
-    background: #eeeeee;
     padding: 12px;
+}
+
+/* fallback */
+
+.image-fallback {
+    display: none;
+    text-align: center;
+    color: #111;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 1px;
 }
 
 .card-content {
@@ -154,15 +196,15 @@ header {
 
 .category {
     color: #777;
-    font-size: 11px;
     text-transform: uppercase;
+    font-size: 11px;
     letter-spacing: 1.5px;
     margin-bottom: 10px;
 }
 
 .card h3 {
-    font-size: 18px;
     margin: 0 0 15px;
+    font-size: 18px;
     line-height: 1.35;
 }
 
@@ -175,7 +217,7 @@ header {
 .old-price {
     color: #777;
     text-decoration: line-through;
-    font-size: 15px;
+    font-size: 14px;
     margin-left: 8px;
 }
 
@@ -183,32 +225,44 @@ header {
     display: inline-block;
     background: white;
     color: black;
-    padding: 11px 18px;
+    padding: 11px 19px;
     border-radius: 7px;
     font-size: 14px;
     font-weight: bold;
+    transition: .2s;
 }
+
+.view-button:hover {
+    background: #ddd;
+}
+
+/* FOOTER */
 
 footer {
     border-top: 1px solid #222;
-    padding: 40px 6%;
+    padding: 45px 6%;
     color: #777;
     font-size: 13px;
     line-height: 1.7;
 }
 
+/* MOBILE */
+
 @media(max-width: 850px) {
+
     .products {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 @media(max-width: 600px) {
+
     header {
         padding: 16px 5%;
     }
 
-    .nav a {
+    .nav-link {
         display: none;
     }
 
@@ -221,54 +275,84 @@ footer {
     }
 
     .section {
-        padding: 50px 5%;
+        padding: 55px 5%;
     }
 
     .products {
         grid-template-columns: 1fr;
     }
 
-    .product-image {
+    .image-box {
         height: 350px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
+
 <header>
-    <div class="logo">LINKVISION</div>
+
+    <div class="logo">
+        LINKVISION
+    </div>
 
     <div class="nav">
-        <a href="#products" id="navProducts">Products</a>
 
-        <div class="lang">
-            <button id="enBtn" class="active" onclick="setLanguage('en')">EN</button>
-            <button id="deBtn" onclick="setLanguage('de')">DE</button>
+        <a href="#products" class="nav-link" id="productsNav">
+            Products
+        </a>
+
+        <div class="languages">
+
+            <button
+                id="enButton"
+                class="active"
+                onclick="setLanguage('en')">
+                EN
+            </button>
+
+            <button
+                id="deButton"
+                onclick="setLanguage('de')">
+                DE
+            </button>
+
         </div>
+
     </div>
+
 </header>
+
 
 
 <section class="hero">
 
     <div class="hero-content">
 
-        <h1 id="heroTitle">FIND YOUR STYLE.</h1>
+        <h1 id="heroTitle">
+            FIND YOUR STYLE.
+        </h1>
 
-        <p id="heroText">
+        <p id="heroDescription">
             Discover fashion, streetwear and lifestyle products
             selected for everyday style.
         </p>
 
-        <a href="#products" class="hero-button" id="heroButton">
+        <a
+            href="#products"
+            class="hero-button"
+            id="heroButton">
             Explore Products
         </a>
 
     </div>
 
 </section>
+
 
 
 <section class="section" id="products">
@@ -281,25 +365,34 @@ footer {
     <div class="products">
 
 
-        <!-- PRODUCT 1 -->
+        <!-- 1 -->
+
         <div class="card">
 
-            <img
-                class="product-image"
-                src="https://m.media-amazon.com/images/I/51XZvF2uNgL._AC_SL1500_.jpg"
-                alt="Cotton Tracksuit"
-            >
+            <div class="image-box">
+
+                <img
+                    class="product-image"
+                    src="https://images.amazon.com/images/P/B0FQ5F1PVT.01.L.jpg"
+                    alt="Cotton Jogging Tracksuit"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback">
+                    LINKVISION
+                </div>
+
+            </div>
 
             <div class="card-content">
 
-                <div class="category" data-en="Streetwear" data-de="Streetwear">
+                <div class="category">
                     Streetwear
                 </div>
 
                 <h3
                     data-en="Cotton Jogging Tracksuit"
-                    data-de="Baumwoll Jogginganzug"
-                >
+                    data-de="Baumwoll Jogginganzug">
                     Cotton Jogging Tracksuit
                 </h3>
 
@@ -308,37 +401,49 @@ footer {
                 </div>
 
                 <a
-                    class="view-button"
                     href="https://www.amazon.de/dp/B0FQ5F1PVT?tag=linkvision-21"
+                    class="view-button"
                     target="_blank"
                     rel="nofollow sponsored noopener"
                     data-en="View →"
-                    data-de="Ansehen →"
-                >
+                    data-de="Ansehen →">
                     View →
                 </a>
 
             </div>
+
         </div>
 
 
-        <!-- PRODUCT 2 -->
+
+        <!-- 2 -->
+
         <div class="card">
 
-            <img
-                class="product-image"
-                src="https://images-na.ssl-images-amazon.com/images/P/B0FJ53WBHJ.01.LZZZZZZZ.jpg"
-                alt="Training Tracksuit"
-            >
+            <div class="image-box">
+
+                <img
+                    class="product-image"
+                    src="https://images.amazon.com/images/P/B0FJ53WBHJ.01.L.jpg"
+                    alt="Training Tracksuit"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback">
+                    LINKVISION
+                </div>
+
+            </div>
 
             <div class="card-content">
 
-                <div class="category">Streetwear</div>
+                <div class="category">
+                    Streetwear
+                </div>
 
                 <h3
                     data-en="Training Tracksuit"
-                    data-de="Trainingsanzug"
-                >
+                    data-de="Trainingsanzug">
                     Training Tracksuit
                 </h3>
 
@@ -347,77 +452,103 @@ footer {
                 </div>
 
                 <a
-                    class="view-button"
                     href="https://www.amazon.de/dp/B0FJ53WBHJ?tag=linkvision-21"
+                    class="view-button"
                     target="_blank"
                     rel="nofollow sponsored noopener"
                     data-en="View →"
-                    data-de="Ansehen →"
-                >
+                    data-de="Ansehen →">
                     View →
                 </a>
 
             </div>
+
         </div>
 
 
-        <!-- PRODUCT 3 -->
+
+        <!-- 3 -->
+
         <div class="card">
 
-            <img
-                class="product-image"
-                src="https://images-na.ssl-images-amazon.com/images/P/B0F4Q2HTFY.01.LZZZZZZZ.jpg"
-                alt="Running Beanie"
-            >
+            <div class="image-box">
+
+                <img
+                    class="product-image"
+                    src="https://images.amazon.com/images/P/B0F4Q2HTFY.01.L.jpg"
+                    alt="Breathable Running Beanie"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback">
+                    LINKVISION
+                </div>
+
+            </div>
 
             <div class="card-content">
 
-                <div class="category">Accessories</div>
+                <div class="category">
+                    Accessories
+                </div>
 
                 <h3
                     data-en="Breathable Running Beanie"
-                    data-de="Atmungsaktive Laufmütze"
-                >
+                    data-de="Atmungsaktive Laufmütze">
                     Breathable Running Beanie
                 </h3>
 
                 <div class="price">
                     €18.00
-                    <span class="old-price">€21.00</span>
+                    <span class="old-price">
+                        €21.00
+                    </span>
                 </div>
 
                 <a
-                    class="view-button"
                     href="https://www.amazon.de/dp/B0F4Q2HTFY?tag=linkvision-21"
+                    class="view-button"
                     target="_blank"
                     rel="nofollow sponsored noopener"
                     data-en="View →"
-                    data-de="Ansehen →"
-                >
+                    data-de="Ansehen →">
                     View →
                 </a>
 
             </div>
+
         </div>
 
 
-        <!-- PRODUCT 4 -->
+
+        <!-- 4 -->
+
         <div class="card">
 
-            <img
-                class="product-image"
-                src="https://images-na.ssl-images-amazon.com/images/P/B0FV8M79TX.01.LZZZZZZZ.jpg"
-                alt="Sweatpants"
-            >
+            <div class="image-box">
+
+                <img
+                    class="product-image"
+                    src="https://images.amazon.com/images/P/B0FV8M79TX.01.L.jpg"
+                    alt="Comfort Sweatpants"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback">
+                    LINKVISION
+                </div>
+
+            </div>
 
             <div class="card-content">
 
-                <div class="category">Pants</div>
+                <div class="category">
+                    Pants
+                </div>
 
                 <h3
                     data-en="Comfort Sweatpants"
-                    data-de="Bequeme Jogginghose"
-                >
+                    data-de="Bequeme Jogginghose">
                     Comfort Sweatpants
                 </h3>
 
@@ -426,37 +557,49 @@ footer {
                 </div>
 
                 <a
-                    class="view-button"
                     href="https://www.amazon.de/dp/B0FV8M79TX?tag=linkvision-21"
+                    class="view-button"
                     target="_blank"
                     rel="nofollow sponsored noopener"
                     data-en="View →"
-                    data-de="Ansehen →"
-                >
+                    data-de="Ansehen →">
                     View →
                 </a>
 
             </div>
+
         </div>
 
 
-        <!-- PRODUCT 5 -->
+
+        <!-- 5 -->
+
         <div class="card">
 
-            <img
-                class="product-image"
-                src="https://images-na.ssl-images-amazon.com/images/P/B0CKN15V9V.01.LZZZZZZZ.jpg"
-                alt="Sports Tracksuit"
-            >
+            <div class="image-box">
+
+                <img
+                    class="product-image"
+                    src="https://images.amazon.com/images/P/B0CKN15V9V.01.L.jpg"
+                    alt="Hooded Sports Tracksuit"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback">
+                    LINKVISION
+                </div>
+
+            </div>
 
             <div class="card-content">
 
-                <div class="category">Sportswear</div>
+                <div class="category">
+                    Sportswear
+                </div>
 
                 <h3
                     data-en="Hooded Sports Tracksuit"
-                    data-de="Sportanzug mit Kapuze"
-                >
+                    data-de="Sportanzug mit Kapuze">
                     Hooded Sports Tracksuit
                 </h3>
 
@@ -465,37 +608,49 @@ footer {
                 </div>
 
                 <a
-                    class="view-button"
                     href="https://www.amazon.de/dp/B0CKN15V9V?tag=linkvision-21"
+                    class="view-button"
                     target="_blank"
                     rel="nofollow sponsored noopener"
                     data-en="View →"
-                    data-de="Ansehen →"
-                >
+                    data-de="Ansehen →">
                     View →
                 </a>
 
             </div>
+
         </div>
 
 
-        <!-- PRODUCT 6 -->
+
+        <!-- 6 -->
+
         <div class="card">
 
-            <img
-                class="product-image"
-                src="https://images-na.ssl-images-amazon.com/images/P/B0H9QJTKMQ.01.LZZZZZZZ.jpg"
-                alt="Black Platform Footwear"
-            >
+            <div class="image-box">
+
+                <img
+                    class="product-image"
+                    src="https://images.amazon.com/images/P/B0H9QJTKMQ.01.L.jpg"
+                    alt="Cushioned Platform Footwear"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback">
+                    LINKVISION
+                </div>
+
+            </div>
 
             <div class="card-content">
 
-                <div class="category">Footwear</div>
+                <div class="category">
+                    Footwear
+                </div>
 
                 <h3
                     data-en="Cushioned Platform Footwear"
-                    data-de="Gepolsterte Plateauschuhe"
-                >
+                    data-de="Gepolsterte Plateauschuhe">
                     Cushioned Platform Footwear
                 </h3>
 
@@ -504,37 +659,49 @@ footer {
                 </div>
 
                 <a
-                    class="view-button"
                     href="https://www.amazon.de/dp/B0H9QJTKMQ?tag=linkvision-21"
+                    class="view-button"
                     target="_blank"
                     rel="nofollow sponsored noopener"
                     data-en="View →"
-                    data-de="Ansehen →"
-                >
+                    data-de="Ansehen →">
                     View →
                 </a>
 
             </div>
+
         </div>
 
 
-        <!-- PRODUCT 7 -->
+
+        <!-- 7 -->
+
         <div class="card">
 
-            <img
-                class="product-image"
-                src="https://m.media-amazon.com/images/I/712fCASztyL._AC_SL1500_.jpg"
-                alt="Black Beanie"
-            >
+            <div class="image-box">
+
+                <img
+                    class="product-image"
+                    src="https://m.media-amazon.com/images/I/712fCASztyL._AC_SL1500_.jpg"
+                    alt="Black Beanie"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback">
+                    LINKVISION
+                </div>
+
+            </div>
 
             <div class="card-content">
 
-                <div class="category">Accessories</div>
+                <div class="category">
+                    Accessories
+                </div>
 
                 <h3
                     data-en="Shift Black Beanie"
-                    data-de="Shift Schwarze Beanie"
-                >
+                    data-de="Shift Schwarze Beanie">
                     Shift Black Beanie
                 </h3>
 
@@ -543,37 +710,49 @@ footer {
                 </div>
 
                 <a
-                    class="view-button"
                     href="https://www.amazon.de/dp/B01FJFR0O4?tag=linkvision-21"
+                    class="view-button"
                     target="_blank"
                     rel="nofollow sponsored noopener"
                     data-en="View →"
-                    data-de="Ansehen →"
-                >
+                    data-de="Ansehen →">
                     View →
                 </a>
 
             </div>
+
         </div>
 
 
-        <!-- PRODUCT 8 -->
+
+        <!-- 8 -->
+
         <div class="card">
 
-            <img
-                class="product-image"
-                src="https://images-na.ssl-images-amazon.com/images/P/B0BQFWZZQ9.01.LZZZZZZZ.jpg"
-                alt="Black Red Laptop Backpack"
-            >
+            <div class="image-box">
+
+                <img
+                    class="product-image"
+                    src="https://images.amazon.com/images/P/B0BQFWZZQ9.01.L.jpg"
+                    alt="Black Red Laptop Backpack"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback">
+                    LINKVISION
+                </div>
+
+            </div>
 
             <div class="card-content">
 
-                <div class="category">Bags</div>
+                <div class="category">
+                    Bags
+                </div>
 
                 <h3
                     data-en="Black & Red Laptop Backpack"
-                    data-de="Schwarz-Roter Laptop-Rucksack"
-                >
+                    data-de="Schwarz-Roter Laptop-Rucksack">
                     Black & Red Laptop Backpack
                 </h3>
 
@@ -582,37 +761,49 @@ footer {
                 </div>
 
                 <a
-                    class="view-button"
                     href="https://www.amazon.de/dp/B0BQFWZZQ9?tag=linkvision-21"
+                    class="view-button"
                     target="_blank"
                     rel="nofollow sponsored noopener"
                     data-en="View →"
-                    data-de="Ansehen →"
-                >
+                    data-de="Ansehen →">
                     View →
                 </a>
 
             </div>
+
         </div>
 
 
-        <!-- PRODUCT 9 -->
+
+        <!-- 9 -->
+
         <div class="card">
 
-            <img
-                class="product-image"
-                src="https://images-na.ssl-images-amazon.com/images/P/B0F18ZGLZ6.01.LZZZZZZZ.jpg"
-                alt="Men's Shoes"
-            >
+            <div class="image-box">
+
+                <img
+                    class="product-image"
+                    src="https://images.amazon.com/images/P/B0F18ZGLZ6.01.L.jpg"
+                    alt="Men's Casual Shoes"
+                    onerror="imageError(this)"
+                >
+
+                <div class="image-fallback">
+                    LINKVISION
+                </div>
+
+            </div>
 
             <div class="card-content">
 
-                <div class="category">Footwear</div>
+                <div class="category">
+                    Footwear
+                </div>
 
                 <h3
                     data-en="Men's Casual Shoes"
-                    data-de="Herren Freizeitschuhe"
-                >
+                    data-de="Herren Freizeitschuhe">
                     Men's Casual Shoes
                 </h3>
 
@@ -621,22 +812,24 @@ footer {
                 </div>
 
                 <a
-                    class="view-button"
                     href="https://www.amazon.de/dp/B0F18ZGLZ6?tag=linkvision-21"
+                    class="view-button"
                     target="_blank"
                     rel="nofollow sponsored noopener"
                     data-en="View →"
-                    data-de="Ansehen →"
-                >
+                    data-de="Ansehen →">
                     View →
                 </a>
 
             </div>
+
         </div>
 
 
     </div>
+
 </section>
+
 
 
 <footer>
@@ -651,25 +844,49 @@ footer {
 </footer>
 
 
+
 <script>
+
+/* IMAGE FALLBACK */
+
+function imageError(image) {
+
+    image.style.display = "none";
+
+    const fallback =
+        image.parentElement.querySelector(".image-fallback");
+
+    if (fallback) {
+        fallback.style.display = "block";
+    }
+}
+
+
+/* LANGUAGE */
 
 function setLanguage(language) {
 
-    const elements = document.querySelectorAll("[data-" + language + "]");
+    document
+        .querySelectorAll("[data-" + language + "]")
+        .forEach(function(element) {
 
-    elements.forEach(function(element) {
-        element.textContent = element.getAttribute("data-" + language);
-    });
+            element.textContent =
+                element.getAttribute("data-" + language);
+
+        });
 
 
     if (language === "de") {
 
         document.documentElement.lang = "de";
 
+        document.getElementById("productsNav").textContent =
+            "Produkte";
+
         document.getElementById("heroTitle").textContent =
             "FINDE DEINEN STYLE.";
 
-        document.getElementById("heroText").textContent =
+        document.getElementById("heroDescription").textContent =
             "Entdecke Fashion, Streetwear und Lifestyle-Produkte für deinen Alltag.";
 
         document.getElementById("heroButton").textContent =
@@ -681,17 +898,23 @@ function setLanguage(language) {
         document.getElementById("footerText").textContent =
             "Als Amazon-Partner verdient LinkVision an qualifizierten Verkäufen. Preise und Verfügbarkeit können sich ändern. Bitte prüfe den aktuellen Preis auf Amazon.";
 
-        document.getElementById("deBtn").classList.add("active");
-        document.getElementById("enBtn").classList.remove("active");
+        document.getElementById("deButton")
+            .classList.add("active");
+
+        document.getElementById("enButton")
+            .classList.remove("active");
 
     } else {
 
         document.documentElement.lang = "en";
 
+        document.getElementById("productsNav").textContent =
+            "Products";
+
         document.getElementById("heroTitle").textContent =
             "FIND YOUR STYLE.";
 
-        document.getElementById("heroText").textContent =
+        document.getElementById("heroDescription").textContent =
             "Discover fashion, streetwear and lifestyle products selected for everyday style.";
 
         document.getElementById("heroButton").textContent =
@@ -703,8 +926,12 @@ function setLanguage(language) {
         document.getElementById("footerText").textContent =
             "As an Amazon Associate, LinkVision earns from qualifying purchases. Prices and availability may change. Please check Amazon for the current price.";
 
-        document.getElementById("enBtn").classList.add("active");
-        document.getElementById("deBtn").classList.remove("active");
+        document.getElementById("enButton")
+            .classList.add("active");
+
+        document.getElementById("deButton")
+            .classList.remove("active");
+
     }
 
 }
